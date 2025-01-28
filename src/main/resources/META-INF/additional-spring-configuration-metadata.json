@@ -1,0 +1,59 @@
+{
+  "properties": [
+    {
+      "name": "database.password",
+      "type": "java.lang.String",
+      "description": "Description for database.password."
+    },
+    {
+      "name": "database.ssl-config",
+      "type": "java.lang.String",
+      "description": "Description for database.ssl-config."
+    },
+    {
+      "name": "database.username",
+      "type": "java.lang.String",
+      "description": "Description for database.username."
+    },
+    {
+      "name": "database.name",
+      "type": "java.lang.String",
+      "description": "Description for database.name."
+    },
+    {
+      "name": "database.host",
+      "type": "java.lang.String",
+      "description": "Description for database.host."
+    },
+    {
+      "name": "database.port",
+      "type": "java.lang.String",
+      "description": "Description for database.port."
+    },
+    {
+      "name": "cors.allowed-origins",
+      "type": "java.lang.String",
+      "description": "Description for cors.allowed-origins."
+    },
+    {
+      "name": "app.jwtSecret",
+      "type": "java.lang.String",
+      "description": "Description for app.jwtSecret."
+    },
+    {
+      "name": "app.jwtExpirationInMs",
+      "type": "java.lang.Long",
+      "description": "Description for app.jwtExpirationInMs."
+    },
+    {
+      "name": "cors.allowed-methods",
+      "type": "java.lang.String",
+      "description": "Description for cors.allowed-methods."
+    },
+    {
+      "name": "cors.allowed-headers",
+      "type": "java.lang.String",
+      "description": "Description for cors.allowed-headers."
+    }
+  ]
+}

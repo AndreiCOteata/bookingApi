@@ -1,0 +1,14 @@
+spring:
+  liquibase:
+    enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform:
+  datasource:
+    url: ${test.container.datasource.url}
+    username: ${test.container.datasource.username}
+    password: ${test.container.datasource.password}
+    driver-class-name: org.postgresql.Driver
+    type: org.postgresql.jdbc3.Jdbc3PoolingDataSource

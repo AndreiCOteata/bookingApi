@@ -1,0 +1,74 @@
+spring:
+  application:
+    name: webportal-api
+  profiles:
+    active: test
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: test-user
+    password: test-password
+    driver-class-name: org.h2.Driver
+    type: org.h2.jdbcx.JdbcDataSource
+  resources:
+    cache:
+      period: 31536000
+      cachecontrol:
+        max-age: 31536000
+    chain:
+      html-application-cache: true
+      enabled: true
+      strategy:
+        content:
+          enabled: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: sdaapp.email.sender@gmail.com
+    password: sdaappusedforprojects
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  main:
+    banner-mode: log
+    allow-bean-definition-overriding: true
+  liquibase:
+    enabled: false
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+swagger:
+  basic.auth:
+    username: local_user
+    password: local_password
+springfox:
+  documentation:
+    swagger.v2.path: "/swagger/api-docs"
+cors:
+  allowed-origins: "*"
+  allowed-methods: "*"
+  allowed-headers: "*"
+
+app:
+  jwtSecret: "JWTSuperSecretKey"
+  jwtRefreshTokenSecret: "JWTRefreshTokenSuperSecretKey"
+  jwtExpirationInMs: 3600000
+  jwtRefreshExpirationInMs: 3600000
+  account:
+    lock:
+      time: 900000
+  frontend:
+    verifyemail:
+      url: "http://localhost:4200/confirmemail"
+    forgotpassword:
+      url: "http://localhost:4200/resetpassword"
+    base:
+      url: "http://localhost:4200"

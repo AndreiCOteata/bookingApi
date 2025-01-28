@@ -1,0 +1,71 @@
+spring:
+  application:
+    name: webportal-api
+  profiles:
+    active: ${ACTIVE_PROFILE:production}
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  resources:
+    cache:
+      period: 31536000
+      cachecontrol:
+        max-age: 31536000
+    chain:
+      html-application-cache: false
+      enabled: true
+      strategy:
+        content:
+          enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5433/andreicoteata
+    username: andreicoteata
+    password:
+    driver-class-name: org.postgresql.Driver
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: sdaapp.email.sender@gmail.com
+    password: 2023Tincuta!
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+    protocol: smtp
+  mvc:
+    throw-exception-if-no-handler-found: true
+app:
+  jwtSecret: "JWTSuperSecretKey"
+  jwtRefreshTokenSecret: "JWTRefreshTokenSuperSecretKey"
+  jwtExpirationInMs: 3600000
+  jwtRefreshExpirationInMs: 3600000
+  account:
+    lock:
+      time: 900000
+  frontend:
+    verifyemail:
+      url: "http://localhost:4200/confirmemail"
+    forgotpassword:
+      url: "http://localhost:4200/resetpassword"
+    base:
+      url: "http://localhost:4200"
+cors:
+  allowed-origins: http://localhost:4200
+  allowed-headers: Authorization,Content-Type
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+
+database:
+  ssl-config:
+  host: localhost
+  name: andreicoteata
+  port: 5433
+  username: andreicoteata
+  password:
+
