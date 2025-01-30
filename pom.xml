@@ -18,6 +18,13 @@
         <relativePath/>
     </parent>
 
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/AndreiCOteata/database-migration</url>
+        </repository>
+    </repositories>
+
     <properties>
 
         <!--  Project based properties  -->
@@ -176,7 +183,7 @@
 
         <!--   Test liquibase jar for h2     -->
         <dependency>
-            <groupId>com.sda</groupId>
+            <groupId>com.bookingApp</groupId>
             <artifactId>database-migration</artifactId>
             <version>${database.migration.version}</version>
             <type>test-jar</type>
