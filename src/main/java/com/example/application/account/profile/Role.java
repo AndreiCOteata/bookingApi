@@ -15,11 +15,12 @@ import java.util.List;
 @ToString
 @Entity(name = "Role")
 @Table(name = "role", schema = "public")
+@SequenceGenerator(name = "role_seq", sequenceName = "role_sequence", allocationSize = 1)
 public class Role extends AbstractEntity {
 
     private static final long serialVersionUID = 5402950313606264066L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_seq")
     private Long id;
 
     @Enumerated(EnumType.STRING)

@@ -15,7 +15,7 @@ import javax.validation.constraints.NotBlank;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 public class CompanyDto extends AbstractDto {
 
     private static final long serialVersionUID = 8540873644833841380L;

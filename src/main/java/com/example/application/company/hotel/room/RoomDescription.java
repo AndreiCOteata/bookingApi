@@ -7,16 +7,17 @@ import javax.persistence.*;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @ToString
 @Entity(name = "RoomDescription")
 @Table(name = "room_description", schema = "public")
+@SequenceGenerator(name = "room_description_seq", sequenceName = "room_description_sequence", allocationSize = 1)
 public class RoomDescription extends AbstractEntity {
 
     private static final long serialVersionUID = -5723739010704911501L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "room_description_seq")
     @ToString.Exclude
     @JsonIgnore
     private Long id;

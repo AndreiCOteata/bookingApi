@@ -15,11 +15,12 @@ import java.util.List;
 @ToString
 @Entity(name = "RoomType")
 @Table(name = "room_type", schema = "public")
+@SequenceGenerator(name = "room_type_seq", sequenceName = "room_type_sequence", allocationSize = 1)
 public class RoomType extends AbstractEntity {
     private static final long serialVersionUID = -5723739010704127836L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "room_type_seq")
     @ToString.Exclude
     @JsonIgnore
     private Long id;

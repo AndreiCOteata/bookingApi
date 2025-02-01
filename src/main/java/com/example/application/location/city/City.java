@@ -16,12 +16,13 @@ import java.util.List;
 @ToString
 @Entity(name = "City")
 @Table(name = "city", schema = "public")
+@SequenceGenerator(name = "city_seq", sequenceName = "city_sequence", allocationSize = 1)
 public class City extends AbstractEntity {
 
     private static final long serialVersionUID = 7756263538271632741L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_seq")
     private Long id;
 
     @Column(name = "name", unique = true)

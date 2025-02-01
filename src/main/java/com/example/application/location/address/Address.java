@@ -16,11 +16,13 @@ import javax.persistence.*;
 @ToString
 @Entity(name = "Address")
 @Table(name = "address", schema = "public")
+@SequenceGenerator(name = "address_seq", sequenceName = "address_sequence", allocationSize = 1)
 public class Address extends AbstractEntity {
 
     private static final long serialVersionUID = -4435857176525535449L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq")
     private Long id;
 
     @Column(name = "street")

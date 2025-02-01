@@ -5,6 +5,7 @@ spring:
     active: ${ACTIVE_PROFILE:production}
   jpa:
     properties:
+      ddl-auto: update
       hibernate:
         jdbc:
           lob:
@@ -21,15 +22,15 @@ spring:
         content:
           enabled: true
   datasource:
-    url: jdbc:postgresql://localhost:5433/andreicoteata
-    username: andreicoteata
-    password:
+    url: jdbc:postgresql://cah8ha8ra8h8i7.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d4h8gjmol5r530
+    username: uc82lnhg7241fu
+    password: pc782a5384ededb1ad442142e19caf1016bdcbf44e98489892530b3e95efc9bba
     driver-class-name: org.postgresql.Driver
   mail:
     host: smtp.gmail.com
     port: 587
     username: sdaapp.email.sender@gmail.com
-    password: 2023Tincuta!
+    password: "whdx yoez mmoz eatk"
     properties:
       mail:
         smtp:
@@ -63,9 +64,9 @@ logging:
 
 database:
   ssl-config:
-  host: localhost
-  name: andreicoteata
-  port: 5433
-  username: andreicoteata
-  password:
+  host: cah8ha8ra8h8i7.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com
+  name: d4h8gjmol5r530
+  port: 5432
+  username: uc82lnhg7241fu
+  password: pc782a5384ededb1ad442142e19caf1016bdcbf44e98489892530b3e95efc9bba
 

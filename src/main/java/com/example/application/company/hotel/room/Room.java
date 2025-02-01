@@ -17,12 +17,13 @@ import java.util.List;
 @ToString
 @Entity(name = "Room")
 @Table(name = "room", schema = "public")
+@SequenceGenerator(name = "room_seq", sequenceName = "room_sequence", allocationSize = 1)
 public class Room extends AbstractEntity {
 
     private static final long serialVersionUID = -4565151713720472922L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "room_seq")
     @ToString.Exclude
     @JsonIgnore
     private Long id;

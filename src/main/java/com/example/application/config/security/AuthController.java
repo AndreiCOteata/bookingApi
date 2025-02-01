@@ -125,14 +125,13 @@ public class AuthController extends BaseController {
     @PostMapping(value = API +"/sign-up", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Object> register(@RequestBody @Valid CreateAccountRequest request) {
         try {
-            //notificationService.sendEmailConfirmation(request);
             userService.create(request);
+            notificationService.sendEmailConfirmation(request);
             return ResponseEntity.ok().build();
-//        } catch (MessagingException ex) {
-//            LOGGER.warn(ex.getMessage());
-//            return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(new ErrorResponse(SERVICE_UNAVAILABLE.getCode(),
-//                    SERVICE_UNAVAILABLE.getMessage()));
-//        }
+        } catch (MessagingException ex) {
+            LOGGER.warn(ex.getMessage());
+            return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(new ErrorResponse(SERVICE_UNAVAILABLE.getCode(),
+                    SERVICE_UNAVAILABLE.getMessage()));
         } catch (ValidationException ex) {
             LOGGER.warn(ex.getMessage());
             return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse(CONFLICT.getCode(),

@@ -17,12 +17,13 @@ import java.sql.Date;
 @Entity(name = "Reservation")
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "reservation", schema = "public")
+@SequenceGenerator(name = "reservation_seq", sequenceName = "reservation_sequence", allocationSize = 1)
 public class Reservation extends BaseModel {
 
     private static final long serialVersionUID = -3685078407901028982L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "reservation_seq")
     @ToString.Exclude
     @JsonIgnore
     private Long id;

@@ -20,12 +20,13 @@ import java.util.List;
 @ToString
 @Entity(name = "Hotel")
 @Table(name = "hotel", schema = "public")
+@SequenceGenerator(name = "hotel_seq", sequenceName = "hotel_sequence", allocationSize = 1)
 public class Hotel extends AbstractEntity {
 
     private static final long serialVersionUID = 6797172096409042266L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hotel_seq")
     @ToString.Exclude
     @JsonIgnore
     private Long id;

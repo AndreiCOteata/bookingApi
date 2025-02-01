@@ -16,11 +16,12 @@ import javax.persistence.*;
 @Entity (name = "plan")
 @Table(name = "plan", schema = "public")
 @EqualsAndHashCode(callSuper = true)
+@SequenceGenerator(name = "plan_seq", sequenceName = "plan_sequence", allocationSize = 1)
 public class Plan extends BaseModel {
 
     private static final long serialVersionUID = 4495030777366472474L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "plan_seq")
     @ToString.Exclude
     @JsonIgnore
     private Long id;

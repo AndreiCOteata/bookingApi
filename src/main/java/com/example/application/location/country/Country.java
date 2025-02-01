@@ -16,12 +16,13 @@ import java.util.List;
 @ToString
 @Entity(name = "Country")
 @Table(name = "country", schema = "public")
+@SequenceGenerator(name = "country_seq", sequenceName = "country_sequence", allocationSize = 1)
 public class Country extends AbstractEntity {
 
     private static final long serialVersionUID = 2589683683069679663L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "country_seq")
     private Long id;
 
     @Enumerated(EnumType.STRING)

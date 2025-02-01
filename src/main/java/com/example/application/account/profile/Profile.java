@@ -18,12 +18,13 @@ import java.util.Set;
 @ToString
 @Entity(name = "Profile")
 @Table(name = "profile", schema = "public")
+@SequenceGenerator(name = "profile_seq", sequenceName = "profile_sequence", allocationSize = 1)
 public class Profile {
 
     private static final long serialVersionUID = -6076308026678412994L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "profile_seq")
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 

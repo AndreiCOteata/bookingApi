@@ -15,16 +15,17 @@ import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @ToString
 @Entity(name = "Company")
 @Table(name = "company", schema = "public")
+@SequenceGenerator(name = "company_seq", sequenceName = "company_sequence", allocationSize = 1)
 public class Company extends AbstractEntity {
 
     private static final long serialVersionUID = -4926622510214183768L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "company_seq")
     @ToString.Exclude
     @JsonIgnore
     private Long id;

@@ -18,12 +18,13 @@ import java.util.List;
 @Entity(name = "Account")
 @Table(name = "account", schema = "public")
 @EqualsAndHashCode(callSuper = true)
+@SequenceGenerator(name = "account_seq", sequenceName = "account_sequence", allocationSize = 1)
 public class Account extends AbstractEntity {
 
     private static final long serialVersionUID = -6076308026678412994L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_seq")
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 

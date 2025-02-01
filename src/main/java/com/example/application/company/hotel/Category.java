@@ -7,7 +7,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -16,12 +15,13 @@ import java.util.List;
 @ToString
 @Entity(name = "Category")
 @Table(name = "category", schema = "public")
+@SequenceGenerator(name = "category_seq", sequenceName = "category_sequence", allocationSize = 1)
 public class Category extends AbstractEntity {
 
     private static final long serialVersionUID = -7554033807918788198L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_seq")
     @ToString.Exclude
     @JsonIgnore
     private Long id;
